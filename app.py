@@ -8,7 +8,9 @@ from sentence_transformers import SentenceTransformer
 import docx
 
 app = Flask(__name__)
-CORS(app)
+
+# 🛡️ CORS Fix for Netlify
+CORS(app, resources={r"/*": {"origins": "https://note-ai-assistant.netlify.app"}})
 
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
